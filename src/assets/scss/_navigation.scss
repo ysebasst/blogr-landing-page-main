@@ -1,0 +1,191 @@
+.navigation {
+  @include wrapper;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3.5rem 0 0;
+  &__logo {
+    height: 2rem;
+  }
+  &__toggle {
+    width: 48px;
+    height: 48px;
+    background-image: url(../images/icon-hamburger.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    &--active {
+      background-image: url(../images/icon-close.svg);
+    }
+    @include from($desktop) {
+      display: none;
+    }
+  }
+  &__menus {
+    display: flex;
+    flex-grow: 1;
+    @include to($desktop) {
+      position: absolute;
+      top: 7.875rem;
+      left: 0rem;
+      flex-direction: column;
+      width: 100%;
+      padding: 1.5rem;
+      border-radius: 0.25rem;
+      color: var(--heading);
+      background-color: var(--White);
+      transform: translateY(-150%);
+      transition: transform 0.3s;
+      &--show {
+        transform: translateY(0);
+      }
+    }
+    @include from($desktop) {
+      justify-content: space-between;
+      margin-left: 4rem;
+    }
+  }
+  &__menu {
+    display: flex;
+    @include noList;
+    @include to($desktop) {
+      flex-direction: column;
+      margin-bottom: 1.5rem;
+    }
+    @include from($desktop) {
+      align-items: center;
+    }
+  }
+  &__link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 48px;
+    font-size: 1.125rem;
+    font-weight: bold;
+    @include noLink;
+    @include from($desktop) {
+      color: var(--White);
+    }
+    &::after {
+      padding: 0.5rem;
+      content: url(../images/icon-arrow-dark.svg);
+      @include from($desktop) {
+        content: url(../images/icon-arrow-light.svg);
+      }
+    }
+  }
+  &__item {
+    position: relative;
+    @include from($desktop) {
+      &:not(:last-of-type) {
+        margin-right: 2rem;
+      }
+      &:hover {
+        .navigation__link {
+          text-decoration: underline;
+          &::after {
+            transform: rotateZ(180deg);
+          }
+        }
+        .navigation__sub-menu {
+          display: block;
+        }
+      }
+    }
+    @include to($desktop) {
+      &--active {
+        .navigation__link {
+          color: var(--Color-body);
+          &::after {
+            transform: rotateZ(180deg);
+          }
+        }
+        .navigation__sub-menu {
+          display: block;
+        }
+      }
+    }
+  }
+  &__sub-menu {
+    display: none;
+    @include noList;
+    min-width: 168px;
+    border-radius: 0.25rem;
+    color: var(--Color-body);
+    @include to($desktop) {
+      margin-top: 0.5rem;
+      padding: 1rem;
+      background-color: rgba(0, 0, 0, 0.0625);
+    }
+    @include from($desktop) {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      padding: 1.25rem 1rem;
+      background-color: var(--White);
+    }
+  }
+  &__sub-link {
+    @include noLink;
+    display: flex;
+    justify-content: center;
+    min-height: 40px;
+    font-weight: bold;
+    width: 100%;
+    flex-basis: 100%;
+    @include to($desktop) {
+      align-items: center;
+    }
+    @include from($desktop) {
+      flex-direction: column;
+      &:hover {
+        color: #000;
+      }
+    }
+  }
+  &__buttons {
+    @include to($desktop) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(0, 0, 0, 0.125);
+    }
+  }
+  &__button {
+    @include button;
+    @include to($desktop) {
+      &:not(:last-of-type) {
+        margin-bottom: 0.5rem;
+      }
+      &--login {
+        color: var(--heading);
+      }
+      &--sign-up {
+        color: var(--White);
+        background-image: var(--gradient1);
+      }
+    }
+    @include from($desktop) {
+      transition: background-color 0.3s;
+      &--login {
+        color: var(--White);
+        background-color: transparent;
+        &:hover {
+          background-color: var(--White);
+          color: var(--Light-red);
+          filter: opacity(0.75);
+        }
+      }
+      &--sign-up {
+        color: var(--Light-red);
+        &:hover {
+          background-color: var(--Very-light-red);
+          color: var(--White);
+          filter: opacity(0.75);
+        }
+      }
+    }
+  }
+}

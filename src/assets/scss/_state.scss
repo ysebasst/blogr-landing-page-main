@@ -1,0 +1,74 @@
+.state {
+  position: relative;
+  @include to($desktop) {
+    padding-bottom: 6rem;
+  }
+  &::before {
+    content: "";
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    border-bottom-left-radius: 6rem;
+    border-top-right-radius: 6rem;
+    @include to($desktop) {
+      margin-top: 11.5rem;
+      height: calc(100% - 11.5rem);
+      background-image: url(../images/bg-pattern-circles.svg), var(--gradient3);
+      background-repeat: no-repeat;
+      background-size: 160%, 100%;
+      background-position: center top -65vw, center center;
+    }
+    @include from($desktop) {
+      margin-top: 4rem;
+      margin-bottom: 7rem;
+      height: calc(100% - 11rem);
+      background-image: url(../images/bg-pattern-circles.svg), var(--gradient4);
+      background-repeat: no-repeat;
+      background-size: 75%, 100%;
+      background-position: right 43vw bottom 15%, right center;
+    }
+  }
+  &__container {
+    @include wrapper;
+    color: var(--White);
+    @include from($desktop) {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+  &__img-phones {
+    max-width: 100%;
+    @include to($desktop) {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    @include from($desktop) {
+      flex-basis: 50%;
+      margin-left: -2.5rem;
+    }
+  }
+  &__info {
+    @include from($desktop) {
+      margin-top: -3rem;
+      flex-basis: 50%;
+      margin-left: 1rem;
+    }
+  }
+  &__title {
+    @include to($desktop) {
+      margin-top: 0;
+      font-size: 2.5rem;
+    }
+    @include from($desktop) {
+      font-size: 37px;
+    }
+  }
+  &__text {
+    font-size: 1.0625rem;
+    line-height: 1.75rem;
+  }
+}

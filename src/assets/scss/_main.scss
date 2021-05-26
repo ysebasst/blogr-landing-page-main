@@ -1,0 +1,7 @@
+.main {
+  // @include wrapper;
+  overflow: hidden;
+  @include to($tablet) {
+    text-align: center;
+  }
+}

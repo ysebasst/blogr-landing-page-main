@@ -1,0 +1,57 @@
+.intro {
+  @include wrapper;
+  position: relative;
+  padding: 4rem 0;
+  color: var(--Color-body);
+  &__content {
+    @include from($tablet) {
+      display: flex;
+      align-items: center;
+    }
+  }
+  &__title {
+    font-family: var(--font-secondary);
+    text-align: center;
+    color: var(--heading);
+    @include from($tablet) {
+      font-size: 2rem;
+    }
+    @include from($desktop) {
+      margin-bottom: -7rem;
+    }
+  }
+  &__picture {
+    @include from($tablet) {
+      flex-basis: 50%;
+      order: 1;
+    }
+  }
+  &__img {
+    @include to($tablet) {
+      width: 100vw;
+      margin-left: calc((100vw - 100%) / -2);
+    }
+    @include from($tablet) {
+      margin-left: 5rem;
+      width: 65vw;
+      max-width: unset;
+    }
+  }
+  &__items {
+    @include from($tablet) {
+      min-width: calc(50% - 1rem);
+    }
+  }
+}
+
+.intro-item {
+  &__title {
+    font-size: 1.875rem;
+    color: var(--heading);
+  }
+  &__text {
+    font-size: 1.0625rem;
+    line-height: 1.75rem;
+    color: var(--Color-body);
+  }
+}

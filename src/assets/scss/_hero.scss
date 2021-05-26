@@ -1,0 +1,60 @@
+.hero {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1.5rem;
+  margin-top: -3.75rem;
+  text-align: center;
+  color: var(--White);
+  &__title {
+    margin-top: 0rem;
+    margin-bottom: 0rem;
+    font-size: 2.25rem;
+    line-height: 1.25;
+  }
+  &__text {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-size: 19px;
+    line-height: 1.25;
+  }
+  &__buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 1.75rem;
+  }
+  &__button {
+    @include button;
+    color: var(--Light-red);
+    &:not(:last-of-type) {
+      margin-right: 1rem;
+    }
+    &--outline {
+      border: 1px solid var(--White);
+      color: var(--White);
+      background-color: transparent;
+    }
+    @include from($tablet) {
+      transition: background-color 0.3s;
+      &:hover {
+        background-color: var(--Very-light-red);
+        color: var(--White);
+      }
+      &--outline {
+        &:hover {
+          background-color: var(--White);
+          color: var(--Very-light-red);
+        }
+      }
+    }
+  }
+  @include from($tablet) {
+    &__title {
+      font-size: 3.5rem;
+    }
+    &__text {
+      font-size: 1.25rem;
+    }
+  }
+}

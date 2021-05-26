@@ -1,0 +1,60 @@
+.description {
+  margin-bottom: 6rem;
+  @include to($tablet) {
+    margin-top: 4.5rem;
+  }
+  @include from($tablet) {
+    margin-bottom: 7.5rem;
+  }
+  &__container {
+    @include wrapper;
+    @include from($tablet) {
+      display: flex;
+      align-items: center;
+    }
+  }
+  &__picture {
+    @include from($tablet) {
+      flex-basis: 50%;
+    }
+  }
+  &__img {
+    @include to($tablet) {
+      display: block;
+      width: 100vw;
+      margin-left: calc((100vw - 100%) / -2);
+      // transform: scale(1.25);
+    }
+    @include from($tablet) {
+      width: 75vw;
+      margin-left: calc((100vw - 34vw) / -2);
+    }
+  }
+  &__info {
+    color: var(--heading);
+    @include from($tablet) {
+      margin-left: 1rem;
+      flex-basis: 50%;
+    }
+  }
+  &__title {
+    color: var(--heading);
+    @include to($tablet) {
+      font-size: 1.75rem;
+    }
+    @include from($tablet) {
+      font-size: 1.5rem;
+    }
+  }
+  &__text {
+    color: var(--Color-body);
+    @include to($tablet) {
+      font-size: 17.5px;
+      line-height: 1.75rem;
+    }
+    @include from($tablet) {
+      font-size: 16px;
+      line-height: 1.75rem;
+    }
+  }
+}

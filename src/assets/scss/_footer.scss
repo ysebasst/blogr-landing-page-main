@@ -1,0 +1,61 @@
+.footer {
+  padding: 5rem 0;
+  border-top-right-radius: 6rem;
+  font-family: var(--font-secondary);
+  background-color: var(--Background-footer);
+  &__container {
+    @include wrapper;
+    @include to($desktop) {
+      text-align: center;
+    }
+    @include from($desktop) {
+      display: flex;
+    }
+  }
+  &__brand {
+    flex-basis: 25%;
+  }
+  &__menu {
+    @include noList;
+    color: var(--White);
+    @include to($desktop) {
+      margin-top: 5rem;
+    }
+    @include from($desktop) {
+      flex-grow: 1;
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+  &__item {
+    @include to($desktop) {
+      margin-top: 3rem;
+    }
+  }
+  &__link,
+  &__sub-link {
+    display: block;
+    @include noLink;
+    @include from($desktop) {
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+  &__link {
+    margin-bottom: 2.25rem;
+    font-size: 1.125rem;
+    font-weight: 500;
+  }
+  &__sub-menu {
+    @include noList;
+  }
+  &__sub-item {
+    &:not(:last-of-type) {
+      margin-bottom: 1rem;
+    }
+  }
+  &__sub-link {
+    color: var(--Color-footer);
+  }
+}

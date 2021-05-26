@@ -1,0 +1,56 @@
+@mixin from($size) {
+  @media screen and (min-width: $size) {
+    @content;
+  }
+}
+@mixin to($size) {
+  @media screen and (max-width: $size - 1px) {
+    @content;
+  }
+}
+
+@mixin wrapper($max-size: 1110px) {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 327px;
+  @include to(375px) {
+    max-width: calc(100% - 3rem);
+  }
+  @include from($tablet) {
+    max-width: 720px;
+  }
+  @include from($desktop) {
+    max-width: $max-size;
+  }
+}
+
+@mixin noList() {
+  padding-left: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+  list-style: none;
+}
+
+@mixin noLink() {
+  color: inherit;
+  text-decoration: none;
+}
+
+@mixin button() {
+  display: inline-block;
+  min-width: 137px;
+  border: none;
+  border-radius: 1.5rem;
+  font-family: inherit;
+  text-align: center;
+  font-weight: bold;
+  line-height: 48px;
+  text-decoration: none;
+  white-space: nowrap;
+  color: #000;
+  background-color: var(--White);
+  cursor: pointer;
+  outline: none;
+  user-select: none;
+}
